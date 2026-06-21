@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string>
+int main(){
+    int fnumber, snumber, tnumber;
+    char symbol;
+    
+    printf("1st Number, ");
+    scanf("%d", &fnumber);
+    
+    printf("2nd Number, ");
+    scanf("%d", &snumber);
+    
+    printf("What do you want? +? -? *? /? ");
+    scanf(" %c", &symbol);
+    
+    if (symbol == '+'){
+        tnumber = fnumber + snumber;
+        printf("%d", tnumber);
+    }
+    else if (symbol == '-'){
+        tnumber = fnumber - snumber;
+        printf("%d", tnumber);
+    }
+    else if (symbol == '*'){
+        tnumber = fnumber * snumber;
+        printf("%d", tnumber);
+    }
+    else if (symbol == '/'){
+        tnumber = fnumber / snumber;
+        printf("%d", tnumber);
+    }
+    return 0;
+}
