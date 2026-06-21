@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int main(){
+  int fnumber, snumber, tnumber;
+  string symbol;
+  cout << "1st Number, ";
+  cin >> fnumber;
+  cout <<  "2nd Number, ";
+  cin >> snumber;
+
+  cout << "What do you want? +? -? *? /?";
+  cin >> symbol;
+
+  if (symbol == "+"){
+    tnumber = fnumber + snumber;
+    cout << tnumber;
+  }
+  else if (symbol == "-"){
+    tnumber = fnumber - snumber;
+    cout << tnumber;
+  }
+  else if (symbol == "*"){
+    tnumber = fnumber * snumber;
+    cout << tnumber;
+  }
+  else if (symbol == "/"){
+    tnumber = fnumber / snumber;
+    cout << tnumber;
+  }
+  return 0;
+}
