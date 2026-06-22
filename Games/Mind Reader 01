@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "=== Mind Reader ===" << endl;
+    cout << "Think of a number between 1 and 255, then answer Y/N for each list." << endl;
+
+    int result = 0;
+    int value = 1;
+
+    for (int b = 0; b < 8; b++) { // Loop through 8 binary bits
+        cout << "\n" << endl;
+
+        int column = 0;
+        for (int n = 1; n <= 255; n++) { // Display the numbers
+            int temp = n;
+            int binary[8] = {};
+
+            for (int i = 0; i < 8; i++) { // Convert decimal to binary
+                binary[i] = temp % 2;
+                temp = temp / 2;
+            }
+
+            if (binary[b] == 1) { // Check whether the current bit is 1
+                cout << n << "\t";
+                column++;
+
+                if (column % 8 == 0)
+                    cout << endl;
+            }
+        }
+
+        cout << "\nIs your number in this list? (Y/N): ";
+        char answer;
+        cin >> answer;
+
+        if (answer == 'Y' || answer == 'y') {
+            result = result + value;
+        }
+
+        value = value * 2; // Move to the next binary value
+    }
+
+    cout << "\n>>> The number you were thinking of is: " << result << " <<<" << endl;
+
+    return 0;
+}
