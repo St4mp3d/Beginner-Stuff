@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main() {
+    printf("=== Mind Reader ===\n");
+    printf("Think of a number between 1 and 255, then answer Y/N for each list.\n");
+
+    int result = 0;
+    int value = 1;
+
+    for (int b = 0; b < 8; b++) { // Loop through 8 binary bits
+        printf("\n");
+
+        int column = 0;
+
+        for (int n = 1; n <= 255; n++) { // Display the numbers
+            int temp = n;
+            int binary[8] = {0};
+
+            for (int i = 0; i < 8; i++) { // Convert decimal to binary
+                binary[i] = temp % 2;
+                temp = temp / 2;
+            }
+
+            if (binary[b] == 1) { // Check whether the current bit is 1
+                printf("%4d", n);
+                column++;
+
+                if (column % 8 == 0) {
+                    printf("\n");
+                }
+            }
+        }
+
+        char answer;
+        printf("\nIs your number in this list? (Y/N): ");
+        scanf(" %c", &answer);
+
+        if (answer == 'Y' || answer == 'y') {
+            result = result + value;
+        }
+
+        value = value * 2; // Move to the next binary value
+    }
+
+    printf("\n>>> The number you were thinking of is: %d <<<\n", result);
+
+    return 0;
+}
