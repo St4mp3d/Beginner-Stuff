@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+int Transaction = 0;
+
+float Balance = 0.0;
+
+void ATMFnc(){
+    cout << "Choices available here";
+    cout << "\n1. Deposit Money";
+    cout << "\n2. Withdraw Money";
+    cout << "\n3. Check Your Balance";
+    
+    int option;
+    cout << "\nYour Option : ";
+    cin >> option;
+    
+    float MoneyWith;
+    float MoneyDep;
+    
+    switch(option)
+    {
+        case 1:
+        cout << "\nHow much would you like to deposit : ";
+        cin >> MoneyDep;
+        Balance += MoneyDep;
+        cout << "\nYour new balance now would be " << Balance << "\nThank you for depositing" << endl;
+        
+        cout << "\nWould you like to continue the transaction?\nInput 1 for yes and 2 for no" << endl;
+        cout << "\nYour Option : ";
+        cin >> Transaction;
+        
+        if (Transaction == 1){
+            ATMFnc();
+        }
+        break;
+        
+        case 2:
+        cout << "\nHow much would you like to withdraw : ";
+        cin >> MoneyWith;
+        Balance -= MoneyWith;
+        cout << "\nYour new balance now would be " << Balance << "\nThank you for withdrawing" << endl;
+        
+        cout << "\nWould you like to continue the transaction?\nInput 1 for yes and 2 for no" << endl;
+        cout << "\nYour Option : ";
+        cin >> Transaction;
+        
+        if (Transaction == 1){
+            ATMFnc();
+        }
+        break;
+        
+        case 3:
+        cout << "\nYour current balance is " << Balance << endl;
+        
+        cout << "\nWould you like to continue the transaction?\nInput 1 for yes and 2 for no" << endl;
+        cout << "\nYour Option : ";
+        cin >> Transaction;
+        
+        if (Transaction == 1){
+            ATMFnc();
+        }
+        break;
+    }
+}
+
+int main (){
+    ATMFnc();
+    cout<<"\nThank you for using this ATM, have a nice day!";
+
+    return 0;
+}
