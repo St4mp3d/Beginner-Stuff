@@ -1,1 +1,75 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int P = 0, t, Option, x, n;
+double r = 0, I = 0, A = 0;
+
+void interest(){
+    cout << "Input the starting amount, ";
+    cin >> P;
+    cout << "Input the anual interest rate, ";
+    cin >> r;
+    cout << "Input how long you would be holding it (Year), ";
+    cin >> t;
+    r = r/100.0;
+    I = P + (P*r*t);
+}
+
+void Compound(){
+    cout << "Input the starting amount, ";
+    cin >> P;
+    cout << "Input the anual interest rate, ";
+    cin >> r;
+    cout << "Input how long you would be holding it (Year), ";
+    cin >> t;
+    cout << "How many times will it be compunded per year, ";
+    cin >> n;
+    r = r/100.0;
+    A = P * pow((1 + (r / n)), (n * t));
+}
+
+void program()
+{
+    cout << "============================================"
+         << "==== Welcome to the Interest Calculator ===="
+         << "============================================"
+         << "\nPlease select which one of these 2 function that you are going to use"
+         << "\n1. Interest Calculator"
+         << "\n2. Compound Interest"
+         << "\nYour Option : ";
+    cin >> Option;
+    switch (Option)
+    {
+    case 1:
+        interest();
+        break;
+    case 2:
+        Compound();
+        break;
+    }
+}
+
+
+
+int main(){
+    do {
+        program();
+        switch(Option)
+        {
+            case 1:
+                cout << "\nYour final amount would be, " << I << ". \nThank you for using our Interest Calculator.\n";
+                break;
+            case 2:
+                cout << "\nYour final amount would be, " << A << ". \nThank you for using our Compounding Interest Calculator.\n";
+                break;
+        }
+        cout << "\nWould you like to continue? \n1 for yes, 2 for no.";
+        cout << "\nYour Option : ";
+        cin >> x;
+        
+    } while (x == 1);
+    cout << "Thank You, Have A Nice Day!";
+    return 0;
+}
 
