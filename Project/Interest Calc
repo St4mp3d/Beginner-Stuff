@@ -38,19 +38,20 @@ void program()
          << "\n1. Interest Calculator"
          << "\n2. Compound Interest"
          << "\nYour Option : ";
-    cin >> Option;
-    switch (Option)
-    {
-    case 1:
-        interest();
-        break;
-    case 2:
-        Compound();
-        break;
+        cin >> Option;
+        switch (Option)
+        {
+        case 1:
+            interest();
+            break;
+        case 2:
+            Compound();
+            break;
+        default:
+            break;
+        }
     }
-}
-
-
+    
 
 int main(){
     do {
