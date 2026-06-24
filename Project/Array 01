@@ -1,0 +1,41 @@
+#include <stdio.h>
+using namespace std;
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+    srand(time(0));
+    int col = rand() % 5 + 3;
+    int row = rand() % 5 + 3;
+    printf("Row = %d\n", row);
+    printf("Column = %d\n", col);
+    int arr[row][col];
+    int freq[21] = {0};
+    printf("\n");
+    for (int r = 0; r < row; r++) {
+        for (int c = 0; c < col; c++) {
+            int rnd = rand() % 20 + 1;
+            arr[r][c] = rnd;
+            freq[rnd]++;
+            printf("%d ", arr[r][c]);
+        }
+        printf("\n");
+    }
+
+    printf("\nEven = ");
+    for (int r = 0; r < row; r++)
+        for (int c = 0; c < col; c++)
+            if (arr[r][c] % 2 == 0 && freq[arr[r][c]] > 0) {
+                printf("%d ", arr[r][c]);
+                freq[arr[r][c]] = 0;
+            }
+    printf("\nOdd = ");
+    for (int r = 0; r < row; r++)
+        for (int c = 0; c < col; c++)
+            if (arr[r][c] % 2 == 1 && freq[arr[r][c]] > 0) {
+                printf("%d ", arr[r][c]);
+                freq[arr[r][c]] = 0;
+            }
+    printf("\n");
+    return 0;
+}
